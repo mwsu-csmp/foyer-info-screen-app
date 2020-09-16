@@ -1,0 +1,10 @@
+.header {
+    padding: 1px;
+    text-align: center;
+    background-color: #ffc700;
+    font-size: 30px;
+}
+.logo {
+    padding-top: 15px;
+    float: left;
+}

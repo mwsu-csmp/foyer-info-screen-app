@@ -1,27 +1,33 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>News</title>
+    <title>MOWest News</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
 
-    <body>
-        <div class="header">
-            <!-- This is where the Missouri Western logo will go. 
-                  The outside box that contains our news information.
-                  OR this will be a basic news heading and we can create a second app to handle the outside-->
-            <h1>
-                {% block newsTitle %}
-                {% endblock %}
-            </h1>      
-        </div>
+<body>
+    <div class="header">
+        <!-- This is where the Missouri Western logo will go. 
+                The outside box that contains our news information.-->
+        
+        <img class="logo" src="/static/images/MWSUlogo.png">
+        <h1>Missouri Western CSMP News</h1>
+    </div>
+    
+    <br/>
+    <hr/>
 
-        <div class="news_window">
-        <!-- This will be the physical window that diplays projects
-              and other department/campus related news -->
-              {% block newsInfo %}
-              {% endblock %}
-        </div>
-    </body>
+    <div class="news_window">
+    <!-- This will be the physical window that diplays projects
+            and other department/campus related news -->
+            <h2>
+            {% block newsTitle %}
+            {% endblock %}
+            </h2>     
+            {% block newsInfo %}
+            {% endblock %}
+    </div>
+</body>
 </html>
