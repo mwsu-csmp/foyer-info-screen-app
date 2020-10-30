@@ -1,13 +1,15 @@
 {% extends "news/index.jinja" %}
 
 {% block newsTitle %}
-    COVID-19 Mask Policies
+    {% for title in newsTitle %}
+        <h2>{{ title.newsTitle }}</h2>
+    {% endfor %}
 {% endblock %}
 
 {% block newsInfo %}
-    <p>Generic news info
-        <ul>
-            <li>All persons must wear a mask while inside campus buildings.</li>
-        </ul>
+    <p>Generic news info<br/>
+        {% for article in content %}
+            {{ article.content }}
+        {% endfor %}
     </p>
 {% endblock %}
