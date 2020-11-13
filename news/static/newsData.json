@@ -1,11 +1,15 @@
 [
     {
+        "id": "1",
+        "template": "newsTitle",
         "author": "Bret L",
         "articleTitle": "test1",
         "content": "test1"
-        
+
     },
-    {        
+    {
+        "id": "2",
+        "template": "newsTitle",
         "author": "Bret L",
         "articleTitle": "test2",
         "content": "test2"
