@@ -1,35 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <title>MOWest News</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/static/style.css" rel="stylesheet">
-</head>
+{%  extends "news/base.jinja" %}
+    {% block title %}<title>News</title>{% endblock %}
+        {% block content %}
 
-<body>
-    <div class="header">
-        <!-- This is where the Missouri Western logo will go. 
-                The outside box that contains our news information.-->
-        
-        <img class="logo" src="/static/images/MWSUlogo.png">
-        <h1>Missouri Western CSMP News</h1>
-    </div>
-    
-    <br/>
-    <hr/>
-
-    <div class="news_window">
-    <!-- This will be the physical window that diplays projects
-            and other department/campus related news -->
-            <h2>
-            {% block newsTitle %}
-            {% endblock %}
-            </h2>     
-            {% block newsInfo %}
-            {% endblock %}
-    </div>
-
-    <img class="qrCode" src="/news/qrcode"/>
-</body>
-</html>
+        {% endblock %}

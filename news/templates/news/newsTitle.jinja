@@ -1,15 +1,13 @@
-{% extends "news/index.jinja" %}
+{% extends "news/base.jinja" %}
 
 {% block newsTitle %}
-    {% for title in newsTitle %}
-        <h2>{{ title.newsTitle }}</h2>
-    {% endfor %}
+        <h2>Covid Rules Update</h2>
 {% endblock %}
 
 {% block newsInfo %}
-    <p>Generic news info<br/>
-        {% for article in content %}
-            {{ article.content }}
-        {% endfor %}
+    <p>Generic news info
+        <ul>
+            <li>All persons must wear a mask while inside campus buildings.</li>
+        </ul>
     </p>
 {% endblock %}
