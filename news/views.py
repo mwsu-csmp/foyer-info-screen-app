@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import jsonlines
 import json
@@ -32,17 +32,19 @@ def slideView(request, id):
     return HttpResponseNotFound('<h1>slide '+id+' not found</h1>')
 
 def advanceSlideView(request, id):
-    pass
-    # TODO: load list of slides, find which slide id is at, go to next slide (or wrap around to first slide)
-    # use a redirect rather than rendering it
+    with open('news/static/newsData.json') as fin:
+        slidelist = json.loads(fin.read())
 
-def newsArticle(request):
-    print("In News Title function")
-    with jsonlines.open('news/static/newsData.jsonl') as reader:
-        for obj in reader:
-            if obj:
-                print("we got json")
-                return render(request, "news/newsTitle.jinja", obj)
-            else:
-                print("we got NO json")
-                return render(request, "news/newsTitle.jinja")
+        print(slidelist[-1])
+        for slide in slidelist:
+            print(slide['id'])
+            if slide['id'] == len(slidelist):
+                id = 1
+                return redirect('slideView', id)
+        # We know we are not at the last element, so we update id then loop again
+        # this time accessing the next slide from our list without using an iterator
+        id += 1
+        for slide in slidelist:
+            if slide['id'] == id:
+                return redirect('slideView', id)
+    return HttpResponseNotFound('<h1>slide ' + str(id) + ' not found</h1>')

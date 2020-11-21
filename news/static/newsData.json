@@ -1,18 +1,39 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "template": "newsTitle",
         "author": "Bret L",
-        "articleTitle": "test1",
-        "content": "test1"
+        "articleTitle": "Covid Vaccine",
+        "content": "The new Covid is nearing completion!!"
 
     },
     {
-        "id": "2",
+        "id": 2,
         "template": "newsTitle",
         "author": "Bret L",
-        "articleTitle": "test2",
-        "content": "test2"
+        "articleTitle": "Online Attendance Policy Update",
+        "content": "Students attending classes online must be required to use a webcam."
         
+    },
+    {
+        "id": 3,
+        "template": "studentSlide",
+        "author": "Bret L",
+        "slideTitle": "Slide Test",
+        "content": "/static/images/sprint2_presentation.pptx.png"
+    },
+    {
+        "id": 4,
+        "template": "newsTitle",
+        "author": "Bret L",
+        "articleTitle": "test4",
+        "content": "test4"
+    },
+    {
+        "id": 5,
+        "template": "newsTitle",
+        "author": "Bret L",
+        "articleTitle": "test5",
+        "content": "test5"
     }
 ]

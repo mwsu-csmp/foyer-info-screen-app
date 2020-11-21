@@ -1,0 +1,9 @@
+{% extends "news/base.jinja" %}
+
+{% block newsTitle %}
+        <h2>{{SlideTitle}}</h2>
+{% endblock %}
+
+{% block newsInfo %}
+    <img class="slide" src={{ content }}>
+{% endblock %}
