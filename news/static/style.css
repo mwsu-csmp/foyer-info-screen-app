@@ -1,10 +1,23 @@
+body {
+    opacity: 0;
+    transition: opacity 5s;
+}
+.logo {
+    padding-top: 15px;
+    float: left;
+}
+#news_window{
+    float: left;
+}
+#qrCode {
+    float: right;
+}
 .header {
     padding: 1px;
     text-align: center;
     background-color: #ffc700;
     font-size: 30px;
 }
-.logo {
-    padding-top: 15px;
-    float: left;
-}
+
+
+

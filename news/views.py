@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-import jsonlines
 import json
 import qrcode
 from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 
-#  This function will generate a qr code and save it as an image. Basic fuction for now redirects to CSMP dep
-#  homepage until urls are established for each slide
+# GLOBALID helps us keep track of where we are in the slideshow
+GLOBALID = 1
+
+# Helper functions to support the functionality in the views
+
+#  This function will generate a qr code and save it as an image. Basic fuction for now redirects to google
+#   until webapp has established url on a server
 def qrGen(request):
 
     img = qrcode.make('http://google.com')
@@ -16,14 +19,36 @@ def qrGen(request):
     img.save(response, "JPEG")
     return response
 
+# This function will keep track of a global ID value that starts at 1 and goes to the amount of
+# of objects/slides we have in our newsData.json file. This global ID value will allow us to
+# to "loop" through our slides using an html redirect
+def slideCounter():
+    global GLOBALID
+    # Open the file and create a list that we can look at loaded with json objects
+    with open('news/static/newsData.json') as fin:
+        slidelist = json.loads(fin.read())
+        # Set maxItems to length of the list of json objects
+        maxItems = len(slidelist)
+        # Check if GLOBALID is at maxItems
+        if(GLOBALID == maxItems):
+            # If it is, reset GLOBALID to 1 and return
+            GLOBALID = 1
+            return(GLOBALID)
+        else:
+            # If it is not, step GLOBALID up by 1 and return
+            GLOBALID += 1
+            return(GLOBALID)
 
+
+# These are views that load a webpage
 def index(request):
 
     print("In basic index function")
     return render(request, "news/index.jinja")
 
 
-def slideView(request, id):
+def slideView(request):
+    id = slideCounter()
     with open('news/static/newsData.json') as fin:
         slidelist = json.loads(fin.read())
         for slide in slidelist:
