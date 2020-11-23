@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name=''),
     path('qrcode', views.qrGen, name='qr'),
-    path('slideshow', views.slideView, name='slideView'),
-    path('slide/<int:id>', views.advanceSlideView, name='advanceSlideView')
+    path('slideshow', views.slideshowView, name='slideshowView'),
+    path('slide/<int:id>', views.slideView, name='singleSlideView')
 ]

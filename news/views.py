@@ -13,8 +13,8 @@ GLOBALID = 1
 #  This function will generate a qr code and save it as an image. Basic fuction for now redirects to google
 #   until webapp has established url on a server
 def qrGen(request):
-
-    img = qrcode.make('http://google.com')
+    global GLOBALID
+    img = qrcode.make('http://127.0.0.1:8000/news/slide/' + str(GLOBALID))
     response = HttpResponse(content_type='image/jpg')
     img.save(response, "JPEG")
     return response
@@ -47,13 +47,21 @@ def index(request):
     return render(request, "news/index.jinja")
 
 
-def slideView(request):
+def slideshowView(request):
     id = slideCounter()
     with open('news/static/newsData.json') as fin:
         slidelist = json.loads(fin.read())
         for slide in slidelist:
             if slide['id'] == id:
                 return render(request, "news/"+slide['template']+".jinja", slide)
+    return HttpResponseNotFound('<h1>slide '+id+' not found</h1>')
+
+def slideView(request, id):
+    with open('news/static/newsData.json') as fin:
+        slidelist = json.loads(fin.read())
+        for slide in slidelist:
+            if slide['id'] == id:
+                return render(request, "news/"+slide['template']+"Single.jinja", slide)
     return HttpResponseNotFound('<h1>slide '+id+' not found</h1>')
 
 def advanceSlideView(request, id):
