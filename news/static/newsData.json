@@ -19,15 +19,15 @@
         "id": 3,
         "template": "studentSlide",
         "author": "Bret L",
-        "slideTitle": "Slide Test",
+        "slideTitle": "Slide Student",
         "content": "/static/images/sprint2_presentation.pptx.png"
     },
     {
         "id": 4,
-        "template": "newsTitle",
+        "template": "studentSlide",
         "author": "Bret L",
-        "articleTitle": "test4",
-        "content": "test4"
+        "slideTitle": "test4",
+        "content": "/static/images/FoyerAppOverview.png"
     },
     {
         "id": 5,
